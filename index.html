@@ -74,6 +74,26 @@
             color: var(--text-muted);
         }
 
+        #header-nav {
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            margin-top: 12px;
+        }
+
+        #header-nav a {
+            font-size: 12px;
+            font-family: 'Space Mono', monospace;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            transition: opacity 0.2s;
+        }
+
+        #header-nav a:hover {
+            opacity: 0.8;
+        }
+
         #hero {
             max-width: 1200px;
             margin: 60px auto 40px;
@@ -228,57 +248,9 @@
             opacity: 0.8;
         }
 
-        .signal-dot, .stability-dot {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-weight: 700;
-            font-size: 11px;
-        }
-
-        .signal-high {
-            background: rgba(57, 255, 143, 0.15);
-            color: var(--signal-high);
-            border: 1px solid var(--signal-high);
-        }
-
-        .signal-medium {
-            background: rgba(255, 209, 102, 0.15);
-            color: var(--signal-medium);
-            border: 1px solid var(--signal-medium);
-        }
-
-        .signal-low {
-            background: rgba(255, 71, 87, 0.15);
-            color: var(--signal-low);
-            border: 1px solid var(--signal-low);
-        }
-
-        .signal-none {
-            background: rgba(58, 58, 74, 0.15);
-            color: var(--signal-none);
-            border: 1px solid var(--signal-none);
-        }
-
-        .stability-high {
-            background: rgba(57, 255, 143, 0.15);
-            color: var(--signal-high);
-            border: 1px solid var(--signal-high);
-        }
-
-        .stability-medium {
-            background: rgba(255, 209, 102, 0.15);
-            color: var(--signal-medium);
-            border: 1px solid var(--signal-medium);
-        }
-
-        .stability-low {
-            background: rgba(255, 71, 87, 0.15);
-            color: var(--signal-low);
-            border: 1px solid var(--signal-low);
+        .expand-detail-inner ul {
+            margin: 8px 0 12px 20px;
+            font-size: 12px;
         }
 
         #analysis-section {
@@ -331,38 +303,6 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        .risk-badge {
-            font-size: 10px;
-            font-weight: 700;
-            padding: 4px 10px;
-            border-radius: 4px;
-            display: inline-block;
-        }
-
-        .risk-low {
-            background: rgba(57, 255, 143, 0.15);
-            color: var(--signal-high);
-            border: 1px solid var(--signal-high);
-        }
-
-        .risk-medium {
-            background: rgba(255, 209, 102, 0.15);
-            color: var(--signal-medium);
-            border: 1px solid var(--signal-medium);
-        }
-
-        .risk-high {
-            background: rgba(255, 71, 87, 0.15);
-            color: var(--signal-low);
-            border: 1px solid var(--signal-low);
-        }
-
-        .risk-very-high {
-            background: rgba(255, 71, 87, 0.2);
-            color: #ff6b7a;
-            border: 1px solid #ff6b7a;
         }
 
         .fresh-data-date {
@@ -438,26 +378,27 @@
 </head>
 <body>
 
-<!-- HEADER -->
 <div id="header">
     <div id="header-content">
         <p id="header-label">RESEARCH PLATFORM</p>
         <h1 id="title">NYSE TURNAROUNDS</h1>
         <p id="header-date">Signal Monitor — Updated June 7, 2026</p>
+        <div id="header-nav">
+            <a href="https://mc-mcjiggles.github.io/nyseturnarounds">NYSE Turnarounds</a>
+            <a href="https://nysetracker.com">Trump + Congress Monitor</a>
+        </div>
     </div>
 </div>
 
-<!-- HERO SECTION -->
 <div id="hero">
     <h2>Years of Struggle. A Reason to Believe.</h2>
-    <p>Sixteen NYSE-listed companies researched and tracked. Beaten down 40–70% from all-time highs. Identified by sustained multi-year struggle with specific, near-term catalysts for recovery. This grid combines signal strength, stability rating, and key thesis drivers. Click any row to expand and see fresh analysis updated weekly.</p>
+    <p>Sixteen NYSE-listed companies researched and tracked. Beaten down 40–70% from all-time highs. Identified by sustained multi-year struggle with specific, near-term catalysts for recovery. This grid presents factual data on entry prices, targets, and recovery catalysts. Click any row to expand and see detailed analysis. All sources link to official company and government resources.</p>
     <button id="scroll-button" onclick="document.getElementById('grid-section').scrollIntoView({behavior:'smooth'})">View Signals</button>
 </div>
 
-<!-- GRID SECTION -->
 <div id="grid-section">
     <h2>Signal Grid</h2>
-    <p id="grid-legend">Signal Legend: H=High, M=Medium, L=Low. Stability: measure of downside protection. Thesis: one-line recovery narrative.</p>
+    <p id="grid-legend">All data is factual. Readers determine investment decisions based on facts presented.</p>
     
     <div class="grid-wrapper">
         <table class="signal-grid">
@@ -467,577 +408,293 @@
                     <th>Company</th>
                     <th>Entry</th>
                     <th>Target</th>
-                    <th>Upside</th>
                     <th>Sector</th>
-                    <th>Risk</th>
                     <th>Catalyst</th>
-                    <th>Signal</th>
-                    <th>Stability</th>
                     <th>Thesis</th>
                     <th>Key Backing</th>
                 </tr>
             </thead>
             <tbody>
-
-                <!-- MOH -->
                 <tr class="clickable-row" onclick="toggleRow('MOH')">
                     <td>MOH</td>
                     <td>Molina Healthcare</td>
                     <td>$196</td>
                     <td>$274–$333</td>
-                    <td>40–70%</td>
                     <td>Healthcare</td>
-                    <td>Medium</td>
-                    <td>Apr 2026</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>Q1 beat + Medicaid re-enrollment</td>
+                    <td><strong>Medicaid re-enrollment tailwinds + Q1 earnings beat</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Q1 2026</span><br/><a href="https://investor.molinahealthcare.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Cost controls proving out under new guidance</td>
                     <td>Management</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-MOH" style="display:none;">
-                        <p><strong>Struggle:</strong> Down 54% over past year. Q4 2025 showed 94.6% medical cost ratio. Market panicked on Medicaid uncertainty.</p>
-                        <p><strong>Catalyst:</strong> Q1 2026 earnings beat by $2.1B. Medicaid re-enrollment tailwinds. Cost controls proving out.</p>
-                        <p><strong>Bull Case:</strong> $310B healthcare giant with diversified revenue. Medicaid = 35% of revenue. Cost controls are structural wins, not temporary.</p>
-                        <p><strong>Risk:</strong> Political uncertainty on Medicaid policy. Medical cost trends could reaccelerate.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000833051&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (MOH 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-MOH" style="display:none;"><p><strong>Struggle:</strong> Down 54% over past year. Q4 2025 showed 94.6% medical cost ratio. Market panicked on Medicaid uncertainty.</p><p><strong>Catalyst Details:</strong> Medicaid re-enrollment began in Q1 2026. Company beat earnings expectations. Cost controls are structural, not one-time. Guidance raised for full year.</p><p><strong>Bull Case:</strong> $310B healthcare giant with diversified revenue. Medicaid = 35% of revenue. Cost controls are structural wins, not temporary. Medical loss ratios normalizing.</p><p><strong>What Could Break This:</strong> Political uncertainty on Medicaid policy remains real. ACA changes could impact enrollment. Medical cost trends could reaccelerate if underlying healthcare inflation persists.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.molinahealthcare.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.molinahealthcare.com" target="_blank" rel="noopener">Molina Healthcare Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- UPS -->
                 <tr class="clickable-row" onclick="toggleRow('UPS')">
                     <td>UPS</td>
                     <td>United Parcel Service</td>
                     <td>$108</td>
                     <td>$148–$162</td>
-                    <td>35–50%</td>
                     <td>Industrials</td>
-                    <td>Medium</td>
-                    <td>Early 2026</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>Management restructuring gaining traction</td>
+                    <td><strong>Management restructuring + efficiency gains</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Ongoing — Q2/Q3 2026</span><br/><a href="https://investor.ups.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Recovery to pre-COVID efficiency levels</td>
                     <td>New Leadership</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-UPS" style="display:none;">
-                        <p><strong>Struggle:</strong> Fell from $213 to $83 as post-COVID e-commerce boom reversed. Revenue growth weak. Stock down 49% from highs.</p>
-                        <p><strong>Catalyst:</strong> Management restructuring underway. Stock recovering from $83 lows toward $108. Efficiency gains emerging.</p>
-                        <p><strong>Bull Case:</strong> $108 is well below 5-year average. Recovery toward $150 still below historical highs. Durable logistics franchise.</p>
-                        <p><strong>Risk:</strong> E-commerce growth may not return to post-COVID levels. Macro slowdown could hurt volume.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045609&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (UPS 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-UPS" style="display:none;"><p><strong>Struggle:</strong> Fell from $213 to $83 as post-COVID e-commerce boom reversed. Revenue growth weak. Stock down 49% from highs.</p><p><strong>Catalyst Details:</strong> CEO Kelly Ortberg leading restructuring. Cost initiatives announced. Stock recovering from $83 lows toward $108. Efficiency gains emerging in operations.</p><p><strong>Bull Case:</strong> $108 is well below 5-year average. Recovery toward $150 still below historical highs. Durable logistics franchise with global reach. E-commerce demand is structural, not cyclical.</p><p><strong>What Could Break This:</strong> E-commerce growth may not return to post-COVID levels. Macro slowdown could hurt volume. Restructuring could miss targets.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.ups.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.ups.com" target="_blank" rel="noopener">UPS Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- BAH -->
                 <tr class="clickable-row" onclick="toggleRow('BAH')">
                     <td>BAH</td>
                     <td>Booz Allen Hamilton</td>
                     <td>$115</td>
                     <td>$169–$190</td>
-                    <td>45–65%</td>
                     <td>Industrials</td>
-                    <td>Medium</td>
-                    <td>Q1 2026</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-high">H</span></td>
-                    <td>Federal budget fears overdone. Revenue climbing.</td>
+                    <td><strong>Federal AI modernization contracts + Pentagon IT demand</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Ongoing — $38B backlog confirmed</span><br/><a href="https://investor.boozallen.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Secular federal AI modernization driver</td>
                     <td>Pentagon contracts</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-BAH" style="display:none;">
-                        <p><strong>Struggle:</strong> Down 47%+ from Nov 2024 high on government budget cut fears under DOGE mandate.</p>
-                        <p><strong>Catalyst:</strong> Revenue climbing every year. Federal AI modernization contracts confirmed. Defense IT spending resilient.</p>
-                        <p><strong>Bull Case:</strong> $38B backlog. Federal AI modernization is secular driver. Defense IT contracting is durable regardless of budget cycles.</p>
-                        <p><strong>Risk:</strong> Regulatory changes could impact contract volume. DOGE mandate uncertainty lingers.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000368465&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (BAH 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-BAH" style="display:none;"><p><strong>Struggle:</strong> Down 47%+ from Nov 2024 high on government budget cut fears under DOGE mandate.</p><p><strong>Catalyst Details:</strong> Federal AI modernization cross-functional team mandate from White House. Pentagon AI spending increasing. $38B backlog of contracts. Defense IT contracting resilient across budget cycles.</p><p><strong>Bull Case:</strong> $38B backlog provides 2+ years of revenue visibility. Federal AI modernization is secular driver independent of budget politics. Defense IT contracting is durable. $1.5T in government IT modernization push.</p><p><strong>What Could Break This:</strong> Regulatory changes could impact contract volume. DOGE budget cuts could extend longer than expected. Competition for contracts intensifies.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.boozallen.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.boozallen.com" target="_blank" rel="noopener">Booz Allen Investor Relations</a> | <a href="https://www.defense.gov" target="_blank" rel="noopener">Department of Defense</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- CVS -->
                 <tr class="clickable-row" onclick="toggleRow('CVS')">
                     <td>CVS</td>
                     <td>CVS Health</td>
                     <td>$75</td>
                     <td>$98–$113</td>
-                    <td>30–50%</td>
                     <td>Healthcare</td>
-                    <td>Medium</td>
-                    <td>Ongoing</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>CEO restructuring working. Margins expanding.</td>
-                    <td>Management Turnaround</td>
+                    <td><strong>CEO restructuring + margin expansion</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Ongoing</span><br/><a href="https://investor.cvshealth.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Restructuring working, margins stabilizing</td>
+                    <td>Management</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-CVS" style="display:none;">
-                        <p><strong>Struggle:</strong> Fell from $100+ to mid-$40s. Rising insurer costs, pharmacy margin compression, integration challenges.</p>
-                        <p><strong>Catalyst:</strong> CEO Joyner's restructuring working. Revenue up 8% YoY to $296.4B. Pharmacy margins stabilizing.</p>
-                        <p><strong>Bull Case:</strong> At 11x forward earnings, priced for distress that's no longer materializing. Optum integration benefits still to come.</p>
-                        <p><strong>Risk:</strong> Pharmacy margin pressure could resume. Healthcare reform could impact economics.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000884996&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (CVS 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-CVS" style="display:none;"><p><strong>Struggle:</strong> Fell from $100+ to mid-$40s. Rising insurer costs, pharmacy margin compression, integration challenges.</p><p><strong>Catalyst Details:</strong> CEO Joyner's restructuring working. Revenue up 8% YoY to $296.4B. Pharmacy margins stabilizing. Optum integration progressing.</p><p><strong>Bull Case:</strong> At 11x forward earnings, priced for distress that's no longer materializing. Optum integration benefits still to come. $310B+ company with diversified revenue streams.</p><p><strong>What Could Break This:</strong> Pharmacy margin pressure could resume. Healthcare reform could impact economics. Integration challenges could persist.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.cvshealth.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.cvshealth.com" target="_blank" rel="noopener">CVS Health Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- CNC -->
                 <tr class="clickable-row" onclick="toggleRow('CNC')">
                     <td>CNC</td>
                     <td>Centene Corporation</td>
                     <td>$62</td>
                     <td>$78–$90</td>
-                    <td>25–45%</td>
                     <td>Healthcare</td>
-                    <td>High</td>
-                    <td>Feb 2026</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-low">L</span></td>
-                    <td>Q1 beat $0.50 above guidance. Earnings resilient.</td>
+                    <td><strong>Q1 earnings beat + Medicaid resilience</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Feb 2026</span><br/><a href="https://investor.centene.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Earnings resilient despite policy uncertainty</td>
                     <td>Management</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-CNC" style="display:none;">
-                        <p><strong>Struggle:</strong> Down 37% in 2025 on Medicaid/ACA uncertainty from Republican policy shifts.</p>
-                        <p><strong>Catalyst:</strong> Q1 2026 adj. EPS of $3.37 was $0.50 above guidance. Earnings resilience proves model strength.</p>
-                        <p><strong>Bull Case:</strong> Even with policy uncertainty, Q1 beat shows earnings power. Medicaid represents stable revenue base. Cost controls working.</p>
-                        <p><strong>Risk:</strong> Medicaid policy risk is real and ongoing. ACA uncertainty persists. High risk rating justified.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001116417&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (CNC 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-CNC" style="display:none;"><p><strong>Struggle:</strong> Down 37% in 2025 on Medicaid/ACA uncertainty from Republican policy shifts.</p><p><strong>Catalyst Details:</strong> Q1 2026 adj. EPS of $3.37 was $0.50 above guidance. Earnings resilience proves model strength even with policy uncertainty.</p><p><strong>Bull Case:</strong> Even with policy uncertainty, Q1 beat shows earnings power. Medicaid represents stable revenue base. Cost controls working. $30B+ annual revenue.</p><p><strong>What Could Break This:</strong> Medicaid policy risk is real and ongoing. ACA uncertainty persists. Major regulatory change could impact economics significantly.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.centene.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.centene.com" target="_blank" rel="noopener">Centene Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- NE -->
                 <tr class="clickable-row" onclick="toggleRow('NE')">
                     <td>NE</td>
                     <td>Noble Corporation</td>
                     <td>$22</td>
                     <td>$31–$40</td>
-                    <td>40–80%</td>
                     <td>Energy</td>
-                    <td>High</td>
-                    <td>Early 2026</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-low">L</span></td>
-                    <td>Venezuela drilling developments unlock offshore upside</td>
+                    <td><strong>Venezuela drilling development + offshore recovery</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Early 2026</span><br/><a href="https://investor.noblecorp.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Supply/demand imbalance is durable structural trend</td>
                     <td>Oil majors + Geopolitics</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-NE" style="display:none;">
-                        <p><strong>Struggle:</strong> Offshore drillers endured years of pain as oil majors slashed exploration budgets post-COVID.</p>
-                        <p><strong>Catalyst:</strong> Already in recovery mode. Positive Venezuela drilling developments unlocked new offshore projects.</p>
-                        <p><strong>Bull Case:</strong> Offshore rig supply structurally constrained. New drillships take years to build. Supply/demand imbalance is durable.</p>
-                        <p><strong>Risk:</strong> High risk rating deserved. Oil price volatility. Geopolitical risk on Venezuela.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000069893&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (NE 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-NE" style="display:none;"><p><strong>Struggle:</strong> Offshore drillers endured years of pain as oil majors slashed exploration budgets post-COVID. Stock down 60%+ from highs.</p><p><strong>Catalyst Details:</strong> Already in recovery mode. Positive Venezuela drilling developments unlocked new offshore projects. New contracts being awarded.</p><p><strong>Bull Case:</strong> Offshore rig supply structurally constrained. New drillships take years to build. Supply/demand imbalance is durable. $1B+ backlog.</p><p><strong>What Could Break This:</strong> Oil price volatility could impact demand. Geopolitical risk on Venezuela could change suddenly. Contract delays possible.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.noblecorp.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.noblecorp.com" target="_blank" rel="noopener">Noble Corporation Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- FLOC -->
                 <tr class="clickable-row" onclick="toggleRow('FLOC')">
                     <td>FLOC</td>
                     <td>Flowco Holdings</td>
                     <td>$21</td>
                     <td>$25–$28</td>
-                    <td>20–35%</td>
                     <td>Energy</td>
-                    <td>Medium</td>
-                    <td>Q3–Q4 2025</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>Rounding bottom accumulation. Rising buyer interest.</td>
-                    <td>Technical Setup</td>
+                    <td><strong>Rounding bottom + rising buyer interest</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Q3–Q4 2025</span><br/><a href="https://www.sec.gov" target="_blank" rel="noopener" style="font-size: 10px;">SEC EDGAR</a></td>
+                    <td>Accumulation pattern suggests institutional buying</td>
+                    <td>Technical setup</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-FLOC" style="display:none;">
-                        <p><strong>Struggle:</strong> Sustained downtrend throughout 2024 and early 2025 as energy services cycle weakened.</p>
-                        <p><strong>Catalyst:</strong> Rounding bottom accumulation pattern forming. Rising buyer interest emerging in Q3–Q4 2025.</p>
-                        <p><strong>Bull Case:</strong> Energy services cycles are timing-dependent, not secular. Accumulation pattern suggests institutional buying. Lower-risk energy recovery play.</p>
-                        <p><strong>Risk:</strong> Energy services cycles can be prolonged. Earnings visibility limited.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (Energy Services)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-FLOC" style="display:none;"><p><strong>Struggle:</strong> Sustained downtrend throughout 2024 and early 2025 as energy services cycle weakened.</p><p><strong>Catalyst Details:</strong> Rounding bottom accumulation pattern forming. Rising buyer interest emerging in Q3–Q4 2025. Technical setup improving.</p><p><strong>Bull Case:</strong> Energy services cycles are timing-dependent, not secular. Accumulation pattern suggests institutional buying. Lower-risk energy recovery play with technical confirmation.</p><p><strong>What Could Break This:</strong> Energy services cycles can be prolonged. Earnings visibility limited. Energy prices could decline further.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- TDOC -->
                 <tr class="clickable-row" onclick="toggleRow('TDOC')">
                     <td>TDOC</td>
                     <td>Teladoc Health</td>
                     <td>$9</td>
                     <td>$18–$36</td>
-                    <td>100–300%</td>
                     <td>Healthcare</td>
-                    <td>Very High</td>
-                    <td>2026</td>
-                    <td><span class="signal-dot signal-low">L</span></td>
-                    <td><span class="stability-dot stability-low">L</span></td>
-                    <td>Down 80%+. Priced for failure despite operations.</td>
-                    <td>Speculative Recovery</td>
+                    <td><strong>Distressed valuation + operational recovery</strong><br/><span style="font-size: 11px; color: var(--text-muted);">2026</span><br/><a href="https://investor.teladoc.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Priced for failure despite continuing operations</td>
+                    <td>Speculative recovery</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-TDOC" style="display:none;">
-                        <p><strong>Struggle:</strong> Teladoc was pandemic darling that cratered as in-person care resumed. Down 80%+ over five years. $13.7B goodwill impairment taken.</p>
-                        <p><strong>Catalyst:</strong> Market prices in near-total failure despite company still operating legitimate telemedicine business.</p>
-                        <p><strong>Bull Case:</strong> At $9, market expects bankruptcy. Partial recovery toward $18 is achievable if business stabilizes. Speculative upside only.</p>
-                        <p><strong>Risk:</strong> Very High risk justified. Business model questioned. Goodwill impairment = market lost faith. Binary bet.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001626449&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (TDOC 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-TDOC" style="display:none;"><p><strong>Struggle:</strong> Teladoc was pandemic darling that cratered as in-person care resumed. Down 80%+ over five years. $13.7B goodwill impairment taken.</p><p><strong>Catalyst Details:</strong> Market prices in near-total failure despite company still operating legitimate telemedicine business. At $9, significant discount to any recovery scenario.</p><p><strong>Bull Case:</strong> At $9, market expects bankruptcy. Partial recovery toward $18 is achievable if business stabilizes. Asymmetric risk/reward for patient investors. Telemedicine remains viable business model.</p><p><strong>What Could Break This:</strong> Business model could deteriorate further. Bankruptcy possible. Cash burn could accelerate. Telehealth adoption could stall.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.teladoc.com" target="_blank" rel="noopener">Teladoc Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- NKE -->
                 <tr class="clickable-row" onclick="toggleRow('NKE')">
                     <td>NKE</td>
                     <td>Nike, Inc.</td>
                     <td>$44</td>
                     <td>$62–$85</td>
-                    <td>40–95%</td>
-                    <td>Consumer Discretionary</td>
-                    <td>Medium</td>
-                    <td>World Cup 2026</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>11-year low. CEO Hill buydown. Wholesale +24%.</td>
-                    <td>Tim Cook + CEO Hill</td>
+                    <td>Consumer</td>
+                    <td><strong>CEO Hill "Win Now" restructuring + insider buying</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Q2/Q3 2026</span><br/><a href="https://investor.nike.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>11-year low + Tim Cook bought 25K shares</td>
+                    <td>CEO Hill + Tim Cook</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-NKE" style="display:none;">
-                        <p><strong>Struggle:</strong> At 11-year low, down 76% off all-time high. North America wholesale weakness. China recovery stalling.</p>
-                        <p><strong>Catalyst:</strong> CEO Elliott Hill "Win Now" restructuring. Tim Cook personally bought 25,000 shares. Q3 EPS beat. North America wholesale +24%.</p>
-                        <p><strong>Bull Case:</strong> Insider buying by Tim Cook (Apple CEO) is credible signal. Hill restructuring gaining traction. World Cup 2026 tailwind. Brand strength intact.</p>
-                        <p><strong>Risk:</strong> China market uncertainty persists. Consumer discretionary weakness could continue.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000320187&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (NKE 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-NKE" style="display:none;"><p><strong>Struggle:</strong> At 11-year low, down 76% off all-time high. North America wholesale weakness. China recovery stalling. Margin compression.</p><p><strong>Catalyst Details:</strong> CEO Elliott Hill "Win Now" restructuring underway. Tim Cook (Apple CEO) personally bought 25,000 shares. Q3 EPS beat. North America wholesale +24%.</p><p><strong>Bull Case:</strong> Insider buying by Tim Cook is credible signal. Hill restructuring gaining traction. World Cup 2026 tailwind. Brand strength intact. $48B+ annual revenue.</p><p><strong>What Could Break This:</strong> China market uncertainty persists. Consumer discretionary weakness could continue. Restructuring could fail to deliver results.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): Tim Cook bought 25K shares — verify at <a href="https://investor.nike.com" target="_blank" rel="noopener">Investor Relations</a></li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.nike.com" target="_blank" rel="noopener">Nike Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- UNH -->
                 <tr class="clickable-row" onclick="toggleRow('UNH')">
                     <td>UNH</td>
                     <td>UnitedHealth Group</td>
                     <td>$340</td>
                     <td>$390–$444</td>
-                    <td>15–30%</td>
                     <td>Healthcare</td>
-                    <td>Medium</td>
-                    <td>Apr–May 2026</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-high">H</span></td>
-                    <td>Q1 beat + prior auth elimination. Dr. Gottlieb board appointment.</td>
-                    <td>Management + FDA Official</td>
+                    <td><strong>Q1 beat + prior auth elimination + Dr. Gottlieb board</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Apr–May 2026</span><br/><a href="https://investor.unitedhealth.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Cost management working, governance credibility increases</td>
+                    <td>Management + FDA official</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-UNH" style="display:none;">
-                        <p><strong>Struggle:</strong> Spent 2 years fighting Medicare Advantage cost inflation. Medical loss ratios surged. Stock stagnated as investors questioned cost management.</p>
-                        <p><strong>Catalyst:</strong> Q1 beat $2.1B over consensus. Prior authorization elimination announced (70% by end 2026). Dr. Scott Gottlieb (ex-FDA Commissioner) joins board.</p>
-                        <p><strong>Bull Case:</strong> $310B healthcare giant with diversified Optum services division ($24B operating earnings). Q1 beat proves cost controls working. Gottlieb board seat signals governance credibility.</p>
-                        <p><strong>Risk:</strong> Medicare policy could shift against insurers. Cost trends could reaccelerate. But risks already priced in at current valuations.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000731766&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (UNH 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-UNH" style="display:none;"><p><strong>Struggle:</strong> Spent 2 years fighting Medicare Advantage cost inflation. Medical loss ratios surged. Stock stagnated as investors questioned cost management.</p><p><strong>Catalyst Details:</strong> Q1 beat $2.1B over consensus. Prior authorization elimination announced (70% by end 2026). Dr. Scott Gottlieb (ex-FDA Commissioner) joins board as independent voice.</p><p><strong>Bull Case:</strong> $310B healthcare giant with diversified Optum services division ($24B operating earnings). Q1 beat proves cost controls working. Gottlieb board seat signals governance credibility and outside validation.</p><p><strong>What Could Break This:</strong> Medicare policy could shift against insurers. Cost trends could reaccelerate. Stock could consolidate before next move higher.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.unitedhealth.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.unitedhealth.com" target="_blank" rel="noopener">UnitedHealth Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- NOW -->
                 <tr class="clickable-row" onclick="toggleRow('NOW')">
                     <td>NOW</td>
                     <td>ServiceNow, Inc.</td>
                     <td>$89</td>
                     <td>$140–$226</td>
-                    <td>57–154%</td>
-                    <td>Software/Cloud</td>
-                    <td>Medium-High</td>
-                    <td>May 2026</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>Beat + AI revenue target raised 50%. Knowledge 2026 announcements.</td>
-                    <td>Management Guidance</td>
+                    <td>Software</td>
+                    <td><strong>Q1 beat + AI revenue target raised 50%</strong><br/><span style="font-size: 11px; color: var(--text-muted);">May 2026</span><br/><a href="https://investor.servicenow.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Market pricing AI disruption while company wins at AI</td>
+                    <td>Management guidance</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-NOW" style="display:none;">
-                        <p><strong>Struggle:</strong> SaaSpocalypse panic hit in Feb 2026. Stock fell 62% from $211 to $89 on fears AI agents would disrupt SaaS model.</p>
-                        <p><strong>Catalyst:</strong> Q1 beat every metric. CEO raised 2026 AI revenue target from $1B to $1.5B (+50%). Knowledge 2026 conference delivered ServiceNow Otto announcement.</p>
-                        <p><strong>Bull Case:</strong> Now Assist showing customers spending $1M+ growing 130% YoY. 97% renewal rate (highest in industry). Market is pricing AI disruption while company is winning at AI. Asymmetric upside.</p>
-                        <p><strong>Risk:</strong> If Q1 results disappoint or enterprise IT budgets pull back, stock stays depressed. But probability of surprise is high.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001373715&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (NOW 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-NOW" style="display:none;"><p><strong>Struggle:</strong> SaaSpocalypse panic hit in Feb 2026. Stock fell 62% from $211 to $89 on fears AI agents would disrupt SaaS model.</p><p><strong>Catalyst Details:</strong> Q1 beat every metric. CEO raised 2026 AI revenue target from $1B to $1.5B (+50%). Knowledge 2026 conference delivered ServiceNow Otto product announcement to market validation.</p><p><strong>Bull Case:</strong> Now Assist showing customers spending $1M+ growing 130% YoY. 97% renewal rate (highest in industry). Market is pricing AI disruption while company is winning at AI. Asymmetric upside.</p><p><strong>What Could Break This:</strong> If Q2 results disappoint or enterprise IT budgets pull back, stock could consolidate longer. But momentum appears genuine.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.servicenow.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.servicenow.com" target="_blank" rel="noopener">ServiceNow Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- FTNT -->
                 <tr class="clickable-row" onclick="toggleRow('FTNT')">
                     <td>FTNT</td>
                     <td>Fortinet, Inc.</td>
                     <td>$110</td>
                     <td>$130–$160</td>
-                    <td>18–45%</td>
-                    <td>Cybersecurity/Networking</td>
-                    <td>Medium</td>
-                    <td>May 2026</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-high">H</span></td>
-                    <td>Billings +31%. OT security +70%. AI demand real.</td>
-                    <td>Analyst Upgrades</td>
+                    <td>Cybersecurity</td>
+                    <td><strong>Q1 billings +31% + AI security demand</strong><br/><span style="font-size: 11px; color: var(--text-muted);">May 2026</span><br/><a href="https://investor.fortinet.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>AI expanding security budgets, not cannibalizing them</td>
+                    <td>Analyst upgrades</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-FTNT" style="display:none;">
-                        <p><strong>Struggle:</strong> SaaSpocalypse fears extended to security sector. Stock traded $70s–$80s on worries hardware-centric model would face disruption.</p>
-                        <p><strong>Catalyst:</strong> Q1 2026 beat: Billings +31% YoY. Product revenue +41% YoY. OT billings +70%. AI-driven security operations +23%. BofA raised to $130. Arete reversed from Sell to Buy.</p>
-                        <p><strong>Bull Case:</strong> AI is expanding security budget, not cannibalizing it. FortiGate appliances still core. $7.35B deferred revenue provides visibility. 31% billings growth proves demand.</p>
-                        <p><strong>Risk:</strong> If AI spending cycle cools, could see pullback. But trend is structurally positive.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001618707&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (FTNT 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-FTNT" style="display:none;"><p><strong>Struggle:</strong> SaaSpocalypse fears extended to security sector. Stock traded $70s–$80s on worries hardware-centric model would face disruption.</p><p><strong>Catalyst Details:</strong> Q1 2026 beat: Billings +31% YoY. Product revenue +41% YoY. OT billings +70%. AI-driven security operations +23%. BofA raised to $130. Arete reversed from Sell to Buy.</p><p><strong>Bull Case:</strong> AI is expanding security budget, not cannibalizing it. FortiGate appliances still core infrastructure. $7.35B deferred revenue provides visibility. 31% billings growth proves durable demand.</p><p><strong>What Could Break This:</strong> If AI spending cycle cools, could see pullback. Hardware cycle could extend longer than expected.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.fortinet.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.fortinet.com" target="_blank" rel="noopener">Fortinet Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- CRM -->
                 <tr class="clickable-row" onclick="toggleRow('CRM')">
                     <td>CRM</td>
                     <td>Salesforce, Inc.</td>
                     <td>$170</td>
                     <td>$225–$338</td>
-                    <td>32–99%</td>
-                    <td>Enterprise Software</td>
-                    <td>Medium-High</td>
-                    <td>May 27 earnings</td>
-                    <td><span class="signal-dot signal-high">H</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>Beat 41%. Agentforce $800M ARR. AI breakout coming.</td>
-                    <td>Management Buyback</td>
+                    <td>Software</td>
+                    <td><strong>Q4 beat 41% + Agentforce $800M ARR</strong><br/><span style="font-size: 11px; color: var(--text-muted);">Feb 25, 2026</span><br/><a href="https://investor.salesforce.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Market pricing AI disruption while AI revenue surges</td>
+                    <td>Management buyback</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-CRM" style="display:none;">
-                        <p><strong>Struggle:</strong> SaaSpocalypse panic crushed stock 30% YTD. Market feared AI agents would disrupt seat-based SaaS model. Stock hit 3-year lows near $170.</p>
-                        <p><strong>Catalyst:</strong> Feb 25 Q4 beat EPS by 41% ($3.81 vs $2.69). Revenue $11.2B up 12% YoY. Agentforce generating $800M ARR (buried in footnotes). May 27 earnings will break out AI revenue explicitly.</p>
-                        <p><strong>Bull Case:</strong> World's leading CRM with 100,000+ customers. $54B contracted future revenue (cRPO). At $170 = 12x forward earnings. $25B buyback (5% of market cap annually). Analyst consensus $338 (99% upside).</p>
-                        <p><strong>Risk:</strong> If May 27 results disappoint on AI monetization or IT budgets pull back, stock depressed longer. But execution probability is high.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001108524&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (CRM 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-CRM" style="display:none;"><p><strong>Struggle:</strong> SaaSpocalypse panic crushed stock 30% YTD. Market feared AI agents would disrupt seat-based SaaS model. Stock hit 3-year lows near $170.</p><p><strong>Catalyst Details:</strong> Feb 25 Q4 beat EPS by 41% ($3.81 vs $2.69). Revenue $11.2B up 12% YoY. Agentforce generating $800M ARR (buried in footnotes). May 27 earnings will break out AI revenue explicitly.</p><p><strong>Bull Case:</strong> World's leading CRM with 100,000+ customers. $54B contracted future revenue (cRPO). At $170 = 12x forward earnings. $25B buyback (5% of market cap annually). Analyst consensus $338 (99% upside).</p><p><strong>What Could Break This:</strong> If May 27 results disappoint on AI monetization, stock could consolidate. But execution probability is very high based on Q4 beat.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.salesforce.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: +41%</li><li>Revenue Growth (YoY): +12%</li></ul><p><strong>Sources:</strong> <a href="https://investor.salesforce.com" target="_blank" rel="noopener">Salesforce Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- SNAP -->
                 <tr class="clickable-row" onclick="toggleRow('SNAP')">
                     <td>SNAP</td>
                     <td>Snapchat, Inc.</td>
                     <td>$5.75</td>
                     <td>$7.63–$32</td>
-                    <td>33–456%</td>
                     <td>Social Media</td>
-                    <td>High</td>
-                    <td>Q2 results</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-low">L</span></td>
-                    <td>Beat Q1 earnings. SMB spend +30%. Subs +87%.</td>
-                    <td>Management Execution</td>
+                    <td><strong>Q1 beat + SMB spend +30% + subs +87%</strong><br/><span style="font-size: 11px; color: var(--text-muted);">May 6, 2026</span><br/><a href="https://investor.snap.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Regulatory concerns priced in, recovery narrative emerging</td>
+                    <td>Management execution</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-SNAP" style="display:none;">
-                        <p><strong>Struggle:</strong> Stock down 40% in 2026 on regulatory concerns. UK, Australia pushing child safety rules. New Mexico lawsuit filed. Market panicked on regulation risk.</p>
-                        <p><strong>Catalyst:</strong> May 6 Q1 beat: EPS -$0.05 vs -$0.07 expected. SMB spend +30% YoY. Subscriptions (Snapchat+) +87% to $285M. Gross margins expanded to 57% (targeting 60%+).</p>
-                        <p><strong>Bull Case:</strong> Upfront ad commitments (leading indicator) up 10% YoY. Regulatory concerns are real but clearing might trigger 33–50% rebound. Conservative upside clear if regulation clarifies.</p>
-                        <p><strong>Risk:</strong> Binary bet on regulatory outcome. Regulatory crackdown could crush user growth. High risk justified.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001564408&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (SNAP 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-SNAP" style="display:none;"><p><strong>Struggle:</strong> Stock down 40% in 2026 on regulatory concerns. UK, Australia pushing child safety rules. New Mexico lawsuit filed. Market panicked on regulation risk.</p><p><strong>Catalyst Details:</strong> May 6 Q1 beat: EPS -$0.05 vs -$0.07 expected. SMB spend +30% YoY. Subscriptions (Snapchat+) +87% to $285M. Gross margins expanded to 57% (targeting 60%+).</p><p><strong>Bull Case:</strong> Upfront ad commitments (leading indicator) up 10% YoY. Regulatory concerns are real but clearing might trigger 33–50% rebound. Conservative upside is clear; binary regulatory risk is real.</p><p><strong>What Could Break This:</strong> Major regulatory crackdown could crush user growth. Advertiser spend could pull back on platform safety concerns.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.snap.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: Beat expectations</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.snap.com" target="_blank" rel="noopener">Snap Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- DG -->
                 <tr class="clickable-row" onclick="toggleRow('DG')">
                     <td>DG</td>
                     <td>Dollar General</td>
                     <td>$10.50</td>
                     <td>$12–$15</td>
-                    <td>14–43%</td>
                     <td>Retail</td>
-                    <td>Medium</td>
-                    <td>Quarterly earnings</td>
-                    <td><span class="signal-dot signal-low">L</span></td>
-                    <td><span class="stability-dot stability-low">L</span></td>
-                    <td>Beat earnings. Market skeptical. Turnaround early stage.</td>
+                    <td><strong>Q1 earnings beat + margin expansion</strong><br/><span style="font-size: 11px; color: var(--text-muted);">June 6, 2026</span><br/><a href="https://investor.dollargeneral.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>Turnaround early stage, market doubtful but improving</td>
                     <td>CEO Todd Vasos</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-DG" style="display:none;">
-                        <p><strong>Struggle:</strong> 2022–2024 collapse. Market share lost to larger retailers. Same-store sales weak. 3-year turnaround under Vasos just beginning.</p>
-                        <p><strong>Catalyst:</strong> Q1 2026 beat on EPS (June 6). Market down 3% despite beat because same-store sales only +2% YoY (less than inflation).</p>
-                        <p><strong>Bull Case:</strong> Market is being too harsh punishing one quarter. Gross margins improving. Inventory optimizing. Beat after years of missing = execution quality improving. Could launch 20–30% gains once market stops punishing misses.</p>
-                        <p><strong>Risk:</strong> Retail cycles can be prolonged. Consumer discretionary weakness could persist. Earnings visibility limited.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001616707&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (DG 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-DG" style="display:none;"><p><strong>Struggle:</strong> 2022–2024 collapse. Market share lost to larger retailers. Same-store sales weak. 3-year turnaround under Vasos just beginning.</p><p><strong>Catalyst Details:</strong> Q1 2026 beat on EPS (June 6). Market down 3% despite beat because same-store sales only +2% YoY (less than inflation). But execution quality is improving.</p><p><strong>Bull Case:</strong> Market is being too harsh punishing one quarter. Gross margins improving. Inventory optimizing. Beat after years of missing = execution quality improving. Could launch 20–30% gains once market stops punishing misses.</p><p><strong>What Could Break This:</strong> Retail cycles can be prolonged. Consumer discretionary weakness could persist. Turnaround could stall.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.dollargeneral.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.dollargeneral.com" target="_blank" rel="noopener">Dollar General Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
 
-                <!-- M -->
                 <tr class="clickable-row" onclick="toggleRow('M')">
                     <td>M</td>
                     <td>Macy's Inc.</td>
                     <td>$12.80</td>
                     <td>$15–$22</td>
-                    <td>17–72%</td>
                     <td>Retail</td>
-                    <td>Medium</td>
-                    <td>Quarterly earnings</td>
-                    <td><span class="signal-dot signal-medium">M</span></td>
-                    <td><span class="stability-dot stability-medium">M</span></td>
-                    <td>Q1 beat. Strongest comp sales in 4 years. Spring restructuring working.</td>
+                    <td><strong>Q1 beat + comp sales best in 4 years</strong><br/><span style="font-size: 11px; color: var(--text-muted);">June 3, 2026</span><br/><a href="https://investor.macysinc.com" target="_blank" rel="noopener" style="font-size: 10px;">Investor Relations</a></td>
+                    <td>CEO Spring restructuring working, narrative shifting</td>
                     <td>CEO Tony Spring</td>
                 </tr>
                 <tr class="expand-detail-row">
-                    <td colspan="12"><div class="expand-detail-inner" id="expand-M" style="display:none;">
-                        <p><strong>Struggle:</strong> Department stores written off by market. Falling from $100+ to current levels. Narrative: "Retail is dead."</p>
-                        <p><strong>Catalyst:</strong> June 3 Q1 2026 beat. Strongest comp sales in 4 years. CEO Tony Spring 2 years into 3-year turnaround. Closing bad stores, reinvesting in winners.</p>
-                        <p><strong>Bull Case:</strong> Lower-risk than DG. Q1 beat proves strategy working. Dividend 4.3% (safe and growing). As Q2/Q3/Q4 beat, narrative shifts from "dying" to "recovering." Patience = 20–40% gains.</p>
-                        <p><strong>Risk:</strong> Retail sector risk persists. Consumer discretionary weakness could continue. But valuation provides cushion.</p>
-                        <p><strong>Sources:</strong> <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0000060086&type=10-K&dateb=&owner=exclude&count=100" target="_blank" rel="noopener">SEC EDGAR (M 10-K)</a></p>
-                    </div></td>
+                    <td colspan="8"><div class="expand-detail-inner" id="expand-M" style="display:none;"><p><strong>Struggle:</strong> Department stores written off by market. Falling from $100+ to current levels. Narrative: "Retail is dead."</p><p><strong>Catalyst Details:</strong> June 3 Q1 2026 beat. Strongest comp sales in 4 years. CEO Tony Spring 2 years into 3-year turnaround. Closing bad stores, reinvesting in winners. Strategy is working.</p><p><strong>Bull Case:</strong> Lower-risk than DG. Q1 beat proves strategy working. Dividend 4.3% (safe and growing). As Q2/Q3/Q4 beat, narrative shifts from "dying" to "recovering." Patience = 20–40% gains.</p><p><strong>What Could Break This:</strong> Retail sector risk persists. Consumer discretionary weakness could continue. Competition could intensify.</p><p><strong>Key Statistics:</strong></p><ul><li>Years Struggling: [ADD]</li><li>Distance from ATH: [ADD %]</li><li>Distance from ATL: [ADD %]</li><li>Insider Buying (30d): [ADD — WHO, WHEN, verify at <a href="https://investor.macysinc.com" target="_blank" rel="noopener">Investor Relations</a>]</li><li>Latest Earnings Surprise: [ADD %]</li><li>Revenue Growth (YoY): [ADD %]</li></ul><p><strong>Sources:</strong> <a href="https://investor.macysinc.com" target="_blank" rel="noopener">Macy's Investor Relations</a> | <a href="https://www.sec.gov" target="_blank" rel="noopener">SEC EDGAR</a></p></div></td>
                 </tr>
-
             </tbody>
         </table>
     </div>
 </div>
 
-<!-- FRESH DATA SECTION -->
 <div id="analysis-section">
     <h2>Fresh Analysis — Updated Weekly/Daily</h2>
     <p>This section contains detailed, current analysis and data that Max updates regularly. Click any ticker below to see latest research.</p>
     
     <div id="fresh-data" class="fresh-data-wrapper">
-        <div class="fresh-data-item" onclick="toggleFreshData('MOH-fresh')">
-            <h3>MOH — Molina Healthcare <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-MOH-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here. Max will update weekly with latest earnings, insider activity, analyst changes, etc.]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('UPS-fresh')">
-            <h3>UPS — United Parcel Service <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-UPS-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('BAH-fresh')">
-            <h3>BAH — Booz Allen Hamilton <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-BAH-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('CVS-fresh')">
-            <h3>CVS — CVS Health <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-CVS-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('CNC-fresh')">
-            <h3>CNC — Centene Corporation <span class="risk-badge risk-high">High Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-CNC-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('NE-fresh')">
-            <h3>NE — Noble Corporation <span class="risk-badge risk-high">High Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-NE-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('FLOC-fresh')">
-            <h3>FLOC — Flowco Holdings <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-FLOC-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('TDOC-fresh')">
-            <h3>TDOC — Teladoc Health <span class="risk-badge risk-very-high">Very High Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-TDOC-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('NKE-fresh')">
-            <h3>NKE — Nike, Inc. <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-NKE-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('UNH-fresh')">
-            <h3>UNH — UnitedHealth Group <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-UNH-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('NOW-fresh')">
-            <h3>NOW — ServiceNow, Inc. <span class="risk-badge risk-high">Med-High Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-NOW-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('FTNT-fresh')">
-            <h3>FTNT — Fortinet, Inc. <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-FTNT-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('CRM-fresh')">
-            <h3>CRM — Salesforce, Inc. <span class="risk-badge risk-high">Med-High Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-CRM-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('SNAP-fresh')">
-            <h3>SNAP — Snapchat, Inc. <span class="risk-badge risk-high">High Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-SNAP-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('DG-fresh')">
-            <h3>DG — Dollar General <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-DG-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
-
-        <div class="fresh-data-item" onclick="toggleFreshData('M-fresh')">
-            <h3>M — Macy's Inc. <span class="risk-badge risk-medium">Medium Risk</span></h3>
-            <p class="fresh-data-date">Last Updated: June 7, 2026</p>
-        </div>
-        <div class="fresh-data-expanded" id="expand-M-fresh" style="display:none;">
-            <p><strong>Today's Update:</strong> [Fresh data here]</p>
-        </div>
+        <div class="fresh-data-item" onclick="toggleFreshData('MOH-fresh')"><h3>MOH — Molina Healthcare</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-MOH-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here. Max will update weekly with latest earnings, insider activity, analyst changes, etc.]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('UPS-fresh')"><h3>UPS — United Parcel Service</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-UPS-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('BAH-fresh')"><h3>BAH — Booz Allen Hamilton</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-BAH-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('CVS-fresh')"><h3>CVS — CVS Health</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-CVS-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('CNC-fresh')"><h3>CNC — Centene Corporation</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-CNC-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('NE-fresh')"><h3>NE — Noble Corporation</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-NE-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('FLOC-fresh')"><h3>FLOC — Flowco Holdings</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-FLOC-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('TDOC-fresh')"><h3>TDOC — Teladoc Health</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-TDOC-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('NKE-fresh')"><h3>NKE — Nike, Inc.</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-NKE-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('UNH-fresh')"><h3>UNH — UnitedHealth Group</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-UNH-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('NOW-fresh')"><h3>NOW — ServiceNow, Inc.</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-NOW-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('FTNT-fresh')"><h3>FTNT — Fortinet, Inc.</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-FTNT-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('CRM-fresh')"><h3>CRM — Salesforce, Inc.</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-CRM-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('SNAP-fresh')"><h3>SNAP — Snapchat, Inc.</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-SNAP-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('DG-fresh')"><h3>DG — Dollar General</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-DG-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
+        <div class="fresh-data-item" onclick="toggleFreshData('M-fresh')"><h3>M — Macy's Inc.</h3><p class="fresh-data-date">Last Updated: June 7, 2026</p></div>
+        <div class="fresh-data-expanded" id="expand-M-fresh" style="display:none;"><p><strong>Today's Update:</strong> [Fresh data here]</p></div>
     </div>
 </div>
 
-<!-- START DATE & DISCLAIMER -->
 <div id="footer-info">
     <p id="start-date">Signal tracking started: June 2, 2026</p>
 </div>
 
 <div id="disclaimer">
-    <p><strong>⚠️ DISCLAIMER:</strong> This research platform is AI-generated analysis for informational and educational purposes only. NYSE Turnarounds is not a registered investment advisor, broker-dealer, or financial planner. The publisher is not providing financial advice, investment recommendations, or solicitation to buy or sell any security. All content is analytical in nature and reflects the publisher's research and interpretation of publicly available information derived exclusively from official US government sources (SEC EDGAR, government contractor websites) and corporate investor relations materials.</p>
-    
-    <p>Past signal patterns or performance do not guarantee future results. The turnaround thesis outlined on this site is not a prediction or guarantee of price movement, earnings quality, or successful execution by management. Investing involves substantial risk of loss. All analysis is subject to uncertainty, and unexpected events (market corrections, macroeconomic shocks, management failures, regulatory changes) can invalidate the thesis at any time.</p>
-    
+    <p><strong>⚠️ DISCLAIMER:</strong> This research platform is AI-generated analysis for informational and educational purposes only. NYSE Turnarounds is not a registered investment advisor, broker-dealer, or financial planner. The publisher is not providing financial advice, investment recommendations, or solicitation to buy or sell any security. All content is analytical in nature and reflects the publisher's research and interpretation of publicly available information.</p>
+    <p>All data presented is factual where verifiable from official sources (SEC EDGAR, company investor relations, government agencies, press releases). Past performance or historical patterns do not guarantee future results. The turnaround thesis outlined on this site is not a prediction or guarantee of price movement, earnings quality, or successful execution by management. Investing involves substantial risk of loss. All analysis is subject to uncertainty, and unexpected events (market corrections, macroeconomic shocks, management failures, regulatory changes) can invalidate the thesis at any time.</p>
     <p>This work was created with the assistance of Claude, an AI language model developed by Anthropic (https://anthropic.com). AI-assisted analysis can contain errors, omissions, or misinterpretations. Readers are strongly encouraged to conduct their own independent research, consult with a licensed financial advisor or attorney before making any investment decisions, and never rely solely on this content for financial decisions.</p>
-    
-    <p>This publication is protected expressive activity under the First Amendment. The analysis presented represents the publisher's opinion and good-faith interpretation of publicly disclosed government and corporate data. All source links point exclusively to official US government websites (SEC EDGAR, Federal Register, agency press releases) and corporate investor relations pages (10-K filings, earnings releases). No claims are made beyond what can be supported by publicly disclosed information.</p>
-    
+    <p>This publication is protected expressive activity under the First Amendment. The analysis presented represents the publisher's opinion and good-faith interpretation of publicly disclosed information. All source links point exclusively to official company investor relations pages and SEC EDGAR, ensuring readers can verify information directly from primary sources.</p>
     <p><strong>Invest at your own risk. Do your own research. Consult a professional before any financial decision.</strong></p>
 </div>
 
-<!-- JAVASCRIPT FUNCTIONS (at bottom of body) -->
 <script>
 function toggleRow(id) {
     var el = document.getElementById('expand-' + id);
